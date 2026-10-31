@@ -1,0 +1,27 @@
+{
+  "name": "airport-investment-agent",
+  "private": true,
+  "workspaces": [
+    "apps/server",
+    "apps/web"
+  ],
+  "scripts": {
+    "start": "npm run db:up && npm run build --workspaces --if-present && concurrently -n server,web \"npm run start -w apps/server\" \"npm run preview -w apps/web\"",
+    "dev": "concurrently -n server,web -c blue,green \"npm run dev -w apps/server\" \"npm run dev -w apps/web\"",
+    "dev:server": "npm run dev -w apps/server",
+    "dev:web": "npm run dev -w apps/web",
+    "setup": "npm run db:up && npm run db:migrate && npm run db:seed",
+    "test": "npm test -w apps/server",
+    "eval:guardrail": "npm run eval:guardrail -w apps/server",
+    "ask": "npm run ask -w apps/server --",
+    "db:up": "docker compose up -d --wait db",
+    "db:generate": "npm run db:generate -w apps/server",
+    "db:migrate": "npm run db:migrate -w apps/server",
+    "db:seed": "npm run db:seed -w apps/server",
+    "ingest": "npm run ingest -w apps/server --",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

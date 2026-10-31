@@ -1,0 +1,1 @@
+ALTER TABLE "airport_scores" DROP COLUMN "confidence";

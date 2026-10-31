@@ -1,0 +1,1 @@
+ALTER TABLE "airport_scores" ADD COLUMN "coverage" text NOT NULL;

@@ -1,0 +1,1 @@
+ALTER TABLE "airports" ADD COLUMN "bts_airport_id" integer;

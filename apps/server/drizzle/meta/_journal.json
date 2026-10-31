@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793378971888,
+      "tag": "0000_clean_thunderbolts",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793433723170,
+      "tag": "0001_fuzzy_jack_murdock",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793433731520,
+      "tag": "0002_lumpy_karma",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793434067133,
+      "tag": "0003_futuristic_thunderbolt_ross",
+      "breakpoints": true
+    }
+  ]
+}
