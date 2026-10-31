@@ -1,4 +1,4 @@
-# Terminal Expansion Opportunity Screening Score (v2)
+# Terminal Expansion Opportunity Screening Score
 
 A deterministic, explainable **screening** score that ranks US airports by public-data signals
 that terminal expansion could plausibly be needed and monetized. It is a starting point for
@@ -35,13 +35,13 @@ analyst review, **not an investment recommendation**. The score is computed in c
   component's raw value, percentile, weight, contribution and caveat.
 - **Fully deterministic:** the same inputs always give the same scores and ranks (unit-tested).
 
-### Why v2 (change from v1)
+### Why the weights look like this
 
-v1 weighted load factor at 30% and operational congestion at 25%. That ranked airports partly
-on problems a terminal cannot fix (runway or air-traffic-control congestion), and leaned heavily
-on an airline-driven metric. v2 moves the weight to the two signals most directly tied to
-terminal throughput (scale and growth), and keeps congestion as a 10% proxy. A unit test
-checks that congestion alone cannot outrank stronger passenger fundamentals.
+Most of the weight goes to the two signals most directly tied to terminal throughput: scale and
+growth. Load factor gets less because it is driven partly by airline seat supply. Operational
+congestion gets the least because weighting it heavily would rank airports on problems a terminal
+cannot fix (runway or air-traffic-control congestion). A unit test checks that congestion alone
+cannot outrank stronger passenger fundamentals.
 
 ## Coverage (not confidence)
 

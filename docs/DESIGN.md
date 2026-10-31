@@ -55,7 +55,7 @@ flowchart LR
 
 ## 2. Scoring methodology
 
-**Terminal Expansion Opportunity Screening Score (v2).** It is a screening score that ranks candidates for further due diligence, **not an investment recommendation**. Implemented as a pure, unit-tested function: `[scoring.ts](../apps/server/src/services/scoring.ts)`.
+**Terminal Expansion Opportunity Screening Score.** It is a screening score that ranks candidates for further due diligence, **not an investment recommendation**. Implemented as a pure, unit-tested function: `[scoring.ts](../apps/server/src/services/scoring.ts)`.
 
 **Thesis.** Terminals are sized by passenger throughput. Renovations pay off where throughput is large and growing, and where demand is already filling the seats on offer.
 
@@ -75,7 +75,7 @@ flowchart LR
 - **Score:** the weighted mean of the percentiles. It is stored with every component's raw value, percentile, weight, contribution and caveat, so the agent can explain any rank.
 - **Deterministic:** the same data always gives the same scores.
 
-**Why congestion has only 10% weight.** Delays and taxi times are driven by runways, air traffic control, weather and airlines, none of which a new terminal fixes. An earlier version (v1) weighted congestion at 25%. That ranked airports partly on problems a terminal can't solve, so v2 moved the weight to scale and growth. A unit test checks that congestion alone can't outrank stronger passenger fundamentals.
+**Why congestion has only 10% weight.** Delays and taxi times are driven by runways, air traffic control, weather and airlines, none of which a new terminal fixes. Weighting congestion heavily would rank airports partly on problems a terminal can't solve, so most of the weight goes to scale and growth instead. A unit test checks that congestion alone can't outrank stronger passenger fundamentals.
 
 **Missing data.** A missing component is dropped and the remaining weights are re-normalized. Each score reports its **coverage**: `full`; `partial` (only the congestion proxy is missing, a small effect); or `limited` (growth is missing, so the score becomes mostly a size ranking). Coverage describes which components could be computed, not data quality or confidence.
 
